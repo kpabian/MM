@@ -11,5 +11,13 @@ namespace MyMoney.Classes
         string amount;
         Category category;
         Importance importance;
+
+        public Spendings (string amount, Category category, Importance importance)
+        {
+            this.amount = amount;
+            this.category = category;
+            this.importance = importance;
+        }
+             
     }
 }
