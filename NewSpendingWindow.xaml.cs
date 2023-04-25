@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace MM
         public NewSpendingWindow()
         {
             InitializeComponent();
+        }
+
+        private void NewSpendingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Spendings spending = new Spendings(sum.Text, category, )
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileWindow profileWindow = new ProfileWindow();
+            profileWindow.Show();
+            this.Close();
         }
     }
 }

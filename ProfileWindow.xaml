@@ -23,9 +23,9 @@
 
         </Grid.RowDefinitions>
 
-        <Button x:Name="NewSpendingsButton" Grid.Column="1" Grid.Row="1" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj wydatki"/>
-        <Button x:Name="NewCategoryButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj kategorię"/>
-        <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="3" Height="60" Width="200" VerticalAlignment="Center" Content="Generuj raport"/>
-        <Button x:Name="LogOutButton" Grid.Column="1" Grid.Row="4" Height="60" Width="200" VerticalAlignment="Center" Content="Wyloguj"/>
+        <Button x:Name="NewSpendingsButton" Grid.Column="1" Grid.Row="1" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj wydatki" Click="NewSpendingsButton_Click"/>
+        <Button x:Name="NewCategoryButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj kategorię" Click="NewCategoryButton_Click"/>
+        <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="3" Height="60" Width="200" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
+        <Button x:Name="LogOutButton" Grid.Column="1" Grid.Row="4" Height="60" Width="200" VerticalAlignment="Center" Content="Wyloguj" Click="LogOutButton_Click"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace MM
         public NewCategoryWindow()
         {
             InitializeComponent();
+        }
+
+        private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Category category = new Category(categoryName.Text);
+            MessageBoxResult result;
+            result = MessageBox.Show("Kategoria stworzona pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

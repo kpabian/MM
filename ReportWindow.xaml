@@ -37,7 +37,7 @@
             <ListBoxItem Content = "400" />
             <ListBoxItem Content = "3470" FontWeight="Bold" />
         </ListBox>
-        <Button x:Name="LogOutButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="60" Width="200" VerticalAlignment="Center" Content="Wróć do profilu"/>
+        <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="60" Width="200" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
 
 
     </Grid>
