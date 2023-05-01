@@ -8,11 +8,11 @@ namespace MM.Classes
 {
     public class Importance
     {
-        string importance;
+        public string Name { get; set; }
 
-        public Importance(string importance)
+        public Importance(string name)
         {
-            this.importance = importance;
+            this.Name = name;
         }
     }
 }

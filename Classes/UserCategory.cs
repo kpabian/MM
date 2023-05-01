@@ -8,12 +8,17 @@ namespace MM.Classes
 {
     public class UserCategoty
     {
-        Category category;
-        User user;
+        public Category Category { get; set; }
+        public User User { get; set; }
         public UserCategoty(Category category, User user)
         {
-            this.category = category;
-            this.user = user;
+            this.Category = category;
+            this.User = user;
+        }
+
+        private UserCategory(Category category)
+        {
+            this.Category = category;
         }
     }
 }

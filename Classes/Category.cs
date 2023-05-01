@@ -8,9 +8,13 @@ namespace MM.Classes
 {
     public class Category
     {
-        string Name;
+        public string Name { get; set; }
 
         public Category(string name) => Name = name;
+        public string CategoryName() 
+        {
+            return $"{Name}";
+        }
     }
 }
 

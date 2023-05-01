@@ -8,15 +8,20 @@ namespace MM.Classes
 {
     public class Spendings
     {
-        string amount;
-        Category category;
-        Importance importance;
+        public string Amount { get; set; }
+        public Category Category { get; set; }
+        public Importance Importance { get; set; }
 
         public Spendings (string amount, Category category, Importance importance)
         {
-            this.amount = amount;
-            this.category = category;
-            this.importance = importance;
+            Amount = amount;
+            Category = category;
+            Importance = importance;
+        }
+
+        private Spendings(string amount)
+        {
+            Amount = amount;
         }
              
     }
