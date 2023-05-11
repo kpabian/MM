@@ -3,26 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MM.Classes
 {
     public class Spendings
     {
+        [Key] public int Id { get; set; }
         public string Amount { get; set; }
-        public Category Category { get; set; }
-        public Importance Importance { get; set; }
-
-        public Spendings (string amount, Category category, Importance importance)
-        {
-            Amount = amount;
-            Category = category;
-            Importance = importance;
-        }
-
-        private Spendings(string amount)
-        {
-            Amount = amount;
-        }
-             
+        [ForeignKey("Category")]
+        public string Category { get; set; }
+        [ForeignKey("Importance")]
+        public string Importance { get; set; }
+ 
     }
 }

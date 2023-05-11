@@ -14,11 +14,9 @@ namespace MM.Classes
         public DbSet<Category> Categories { get; set; }
         public DbSet<Importance> Importances { get; set; }
         public DbSet<Spendings> Spendings { get; set; }
-        public DbSet<UserCategoty> UserCategoties { get; set; }
+        public DbSet<UserCategory> UserCategories { get; set; }
 
-        public string path = @"./Data/MMDb.db";
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source = {path}");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source = {"MMDb.db"}");
         
     }
 }

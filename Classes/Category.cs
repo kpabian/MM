@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MM.Classes
 {
     public class Category
     {
+        [Key]
         public string Name { get; set; }
 
-        public Category(string name) => Name = name;
-        public string CategoryName() 
-        {
-            return $"{Name}";
-        }
+        
     }
 }
 

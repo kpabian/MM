@@ -27,7 +27,6 @@ namespace MM
 
         private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            Category category = new Category(categoryName.Text);
             MessageBoxResult result;
             result = MessageBox.Show("Kategoria stworzona pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
         }

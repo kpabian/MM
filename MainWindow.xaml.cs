@@ -36,7 +36,7 @@ namespace MM
 
         private void newAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User(username.Text, password.Text);
+            //User user = new User(username.Text, password.Text);
 
             ProfileWindow profileWindow = new ProfileWindow();
             profileWindow.Show();
