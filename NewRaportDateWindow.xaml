@@ -21,7 +21,20 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="month" Grid.Column="1" Grid.Row="1" Width="200" Height="40" IsEditable="false" IsReadOnly="true"/>
+        <ComboBox x:Name="month" Grid.Column="1" Grid.Row="1" Width="200" Height="40" IsEditable="false" IsReadOnly="true">
+            <ComboBoxItem>Styczeń</ComboBoxItem>
+            <ComboBoxItem>Luty</ComboBoxItem>
+            <ComboBoxItem>Marzec</ComboBoxItem>
+            <ComboBoxItem>Kwiecień</ComboBoxItem>
+            <ComboBoxItem>Maj</ComboBoxItem>
+            <ComboBoxItem>Czerwiec</ComboBoxItem>
+            <ComboBoxItem>Lipiec</ComboBoxItem>
+            <ComboBoxItem>Sierpień</ComboBoxItem>
+            <ComboBoxItem>Wrzesień</ComboBoxItem>
+            <ComboBoxItem>Październik</ComboBoxItem>
+            <ComboBoxItem>Listopad</ComboBoxItem>
+            <ComboBoxItem>Grudzień</ComboBoxItem>
+        </ComboBox>
         <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
         <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="3" Height="60" Width="200" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
 

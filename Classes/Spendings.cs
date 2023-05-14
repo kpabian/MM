@@ -11,11 +11,16 @@ namespace MM.Classes
     public class Spendings
     {
         [Key] public int Id { get; set; }
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
+        [ForeignKey("Month")]
+        public string MonthName { get; set; }
+        public Month Month { get; set; }
         [ForeignKey("Category")]
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
+        public Category Category { get; set; }
         [ForeignKey("Importance")]
-        public string Importance { get; set; }
- 
+        public string ImportanceName { get; set; }
+        public Importance Importance { get; set; }
+
     }
 }

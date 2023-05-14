@@ -27,6 +27,18 @@ namespace MM
 
         private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
+            using (var context = new MMContext())
+            {
+                var std = new Category()
+                {
+                    Name = categoryName.Text
+                };
+                context.Categories.Add(std);
+
+
+                context.SaveChanges();
+            }
+
             MessageBoxResult result;
             result = MessageBox.Show("Kategoria stworzona pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
         }

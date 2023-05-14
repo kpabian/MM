@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MM.Classes;
 
 namespace MM
 {
@@ -33,7 +34,11 @@ namespace MM
 
         private void NewReportButton_Click(object sender, RoutedEventArgs e)
         {
-            ReportWindow reportWindow = new ReportWindow();
+            var context = new MMContext();
+            var report = context.Spendings
+                         .Where(s => s.MonthName == month.Text)
+                         .ToList();
+            ReportWindow reportWindow = new ReportWindow(report);
             reportWindow.Show();
             this.Close();
         }

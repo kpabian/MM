@@ -13,6 +13,7 @@ namespace MM.Classes
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Importance> Importances { get; set; }
+        public DbSet<Month> Months { get; set; }
         public DbSet<Spendings> Spendings { get; set; }
         public DbSet<UserCategory> UserCategories { get; set; }
 

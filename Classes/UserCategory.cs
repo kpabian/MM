@@ -13,11 +13,13 @@ namespace MM.Classes
     {
         [Key] public int Id { get; set; }
         [ForeignKey("Category")]
-        public string Category { get; set; }
+        public string Name { get; set; }
+        public Category Category { get; set; }
         [ForeignKey("User")]
-        public string User { get; set; }
+        public string UserName { get; set; }
+        public User User { get; set; }
 
 
-        
+
     }
 }
