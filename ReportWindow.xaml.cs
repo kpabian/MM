@@ -25,10 +25,17 @@ namespace MM
             InitializeComponent();
         }
 
-        public ReportWindow(List<Spendings> report)
+        public ReportWindow(string report)
         {
-
             InitializeComponent();
+            //using (var context = new MMContext())
+            //{
+            //    CategoryTextBlock.Text = context.Spendings
+            //             .Where(s => s.MonthName == report)
+            //             .Select(s => s.CategoryName)
+            //             .ToString();
+            //}
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

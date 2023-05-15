@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MM"
-        mc:Ignorable="d"
-        Title="ProfileWindow" Height="450" Width="800">
+        mc:Ignorable="d" FontSize="27"
+        Title="ProfileWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -23,9 +23,9 @@
 
         </Grid.RowDefinitions>
 
-        <Button x:Name="NewSpendingsButton" Grid.Column="1" Grid.Row="1" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj wydatki" Click="NewSpendingsButton_Click"/>
-        <Button x:Name="NewCategoryButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" VerticalAlignment="Center" Content="Dodaj kategorię" Click="NewCategoryButton_Click"/>
-        <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="3" Height="60" Width="200" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
-        <Button x:Name="LogOutButton" Grid.Column="1" Grid.Row="4" Height="60" Width="200" VerticalAlignment="Center" Content="Wyloguj" Click="LogOutButton_Click"/>
+        <Button x:Name="NewSpendingsButton" Grid.Column="1" Grid.Row="1" Height="60" Width="300" VerticalAlignment="Center" Content="Dodaj wydatki" Click="NewSpendingsButton_Click"/>
+        <Button x:Name="NewCategoryButton" Grid.Column="1" Grid.Row="2" Height="60" Width="300" VerticalAlignment="Center" Content="Dodaj kategorię" Click="NewCategoryButton_Click"/>
+        <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="3" Height="60" Width="300" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
+        <Button x:Name="LogOutButton" Grid.Column="1" Grid.Row="4" Height="60" Width="300" VerticalAlignment="Center" Content="Wyloguj" Click="LogOutButton_Click"/>
     </Grid>
 </Window>

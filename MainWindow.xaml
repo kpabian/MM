@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MM"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" FontSize="27"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -20,18 +20,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="appName" Grid.Column="1" Grid.Row="1" FontSize="30" Text="MyMoney" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10,0,0" Text="login:"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,0" Text="login:"/>
         <TextBox x:Name="username" Grid.Column="1" Grid.Row="3" Width="160" Height="20" Margin="0,10,0,0" FontSize="12"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Margin="0,10,0,0" Text="hasło:"/>
-        <TextBox x:Name="password" Grid.Column="1" Grid.Row="5" Width="160" Height="20" Margin="0,10,0,0" FontSize="12"/>
-        <Button x:Name="loginButton" Grid.Column="1" Grid.Row="6" Height="40" Width="120" Margin="0,10,0,0" VerticalAlignment="Top" Content="Zaloguj" Click="loginButton_Click"/>
-        <Button x:Name="newAccountButton" Grid.Column="1" Grid.Row="7" Height="40" Width="120" Margin="0,10,0,0" VerticalAlignment="Top" Content="Zarejestruj" Click="newAccountButton_Click"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,0" Text="hasło:"/>
+        <PasswordBox x:Name="password" Grid.Column="1" Grid.Row="5" Width="160" Height="20" Margin="0,10,0,0" FontSize="12"/>
+        <Button x:Name="loginButton" Grid.Column="1" Grid.Row="7" Height="40" Width="160" VerticalAlignment="Center" Content="Zaloguj" Click="loginButton_Click"/>
+        <Button x:Name="newAccountButton" Grid.Column="1" Grid.Row="8" Height="40" Width="160" VerticalAlignment="Center" Content="Zarejestruj" Click="newAccountButton_Click"/>
 
 
     </Grid>

@@ -19,7 +19,7 @@ namespace MM
         {
             DatabaseFacade databaseFacade = new DatabaseFacade(new Classes.MMContext());
             databaseFacade.EnsureCreated();
-            NewDatabase();
+            //NewDatabase();
 
             
         }

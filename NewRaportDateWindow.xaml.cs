@@ -35,9 +35,7 @@ namespace MM
         private void NewReportButton_Click(object sender, RoutedEventArgs e)
         {
             var context = new MMContext();
-            var report = context.Spendings
-                         .Where(s => s.MonthName == month.Text)
-                         .ToList();
+            var report = month.Text;
             ReportWindow reportWindow = new ReportWindow(report);
             reportWindow.Show();
             this.Close();

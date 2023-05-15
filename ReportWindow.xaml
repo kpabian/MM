@@ -4,40 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MM"
-        mc:Ignorable="d" FontSize="20"
-        Title="ReportWindow" Height="450" Width="800" Foreground="White">
+        mc:Ignorable="d" FontSize="27"
+        Title="ReportWindow" Height="450" Width="800" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        
-        <ListBox Name = "CategoryListbox" Grid.Column="1" Grid.Row="1" BorderBrush="White">
-            <ListBoxItem Content = "Żywność" />
-            <ListBoxItem Content = "Mieszkanie"/>
-            <ListBoxItem Content = "Studia" />
-            <ListBoxItem Content = "Rozrywka" />
-            <ListBoxItem Content = "Inwestycje" />
-            <ListBoxItem Content = "Suma" FontWeight="Bold" />
 
-        </ListBox>
-        <ListBox Name = "AmountListbox" Grid.Column="2" Grid.Row="1" BorderBrush="White">
-            <ListBoxItem Content = "670" />
-            <ListBoxItem Content = "1200" />
-            <ListBoxItem Content = "800" />
-            <ListBoxItem Content = "400" />
-            <ListBoxItem Content = "3470" FontWeight="Bold" />
-        </ListBox>
-        <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="60" Width="200" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
+        <DataGrid Name = "CategoryTextBlock" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="True"/>
+        
+        
+        <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="60" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
 
 
     </Grid>
