@@ -36,7 +36,7 @@ namespace MM
         {
             var context = new MMContext();
             var report = month.Text;
-            ReportWindow reportWindow = new ReportWindow(report);
+            ReportWindow reportWindow = new ReportWindow();
             reportWindow.Show();
             this.Close();
         }

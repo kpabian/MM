@@ -20,9 +20,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Name = "CategoryTextBlock" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="True"/>
-        
-        
+        <TextBox x:Name="DataTextBox" Grid.Column="1" Grid.Row="1"/>
         <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="60" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
 
 
