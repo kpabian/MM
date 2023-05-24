@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO.Packaging;
 
 namespace MM.Classes
 {
@@ -21,6 +22,9 @@ namespace MM.Classes
         [ForeignKey("Importance")]
         public string ImportanceName { get; set; }
         public Importance Importance { get; set; }
+        [ForeignKey("User")]
+        public string UserName { get; set; }
+        public User User { get; set; }
 
     }
 }

@@ -15,7 +15,6 @@ namespace MM.Classes
         public DbSet<Importance> Importances { get; set; }
         public DbSet<Month> Months { get; set; }
         public DbSet<Spendings> Spendings { get; set; }
-        public DbSet<UserCategory> UserCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source = {"MMDb.db"}");
         

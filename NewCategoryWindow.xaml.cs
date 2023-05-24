@@ -31,7 +31,9 @@ namespace MM
             {
                 var std = new Category()
                 {
-                    Name = categoryName.Text
+                    Name = categoryName.Text,
+                    User = context.Users.Where(s => s.ID == true).First()
+
                 };
                 context.Categories.Add(std);
 
@@ -40,7 +42,7 @@ namespace MM
             }
 
             MessageBoxResult result;
-            result = MessageBox.Show("Kategoria stworzona pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+            result = MessageBox.Show("Kategoria stworzona", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

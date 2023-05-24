@@ -26,7 +26,7 @@ namespace MM
         {
             InitializeComponent();
             MMContext context = new MMContext();
-            var x = context.Spendings.GroupBy(x => x.CategoryName).ToArray();
+            var x = context.Spendings.Where(s => s.User.ID == true).GroupBy(x => x.CategoryName).ToArray();
             StringBuilder sb = new StringBuilder();
             decimal fullAmount = 0;
             foreach(var i in  x)

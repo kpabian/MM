@@ -12,6 +12,9 @@ namespace MM.Classes
     {
         [Key]
         public string Name { get; set; }
+        [ForeignKey("User")]
+        public string UserName { get; set; }
+        public User User { get; set; }
 
         
     }

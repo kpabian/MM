@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -29,21 +30,52 @@ namespace MM
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profileWindow = new ProfileWindow();
-            profileWindow.Show();
-            this.Close();
+            string Username = username.Text;
+            string Password = password.Password;
+
+            using (MMContext context = new MMContext())
+            {
+                bool userexist = context.Users.Any(user => user.Name == Username && user.Password == Password);
+                if (userexist)
+                {
+                    var std = context.Users.Where(s => s.Name == Username).First();
+                    std.ID = true;
+                    context.SaveChanges();
+                    ProfileWindow profileWindow = new ProfileWindow();
+                    profileWindow.Show();
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Źle wprowadzone dane");
+            }
+
         }
 
         private void newAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            //User user = new User(username.Text, password.Text);
+            using (MMContext context = new MMContext())
+            {
+                bool userexist = context.Users.Any(user => user.Name == username.Text);
+                if (!userexist)
+                {
+                    var user = new User()
+                    {
+                        Name = username.Text,
+                        Password = password.Password,
+                        ID = true
+                    };
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                }
 
-            ProfileWindow profileWindow = new ProfileWindow();
-            profileWindow.Show();
+                ProfileWindow profileWindow = new ProfileWindow();
+                profileWindow.Show();
                 this.Close();
 
-            MessageBoxResult result;
-            result = MessageBox.Show("Konto utworzone pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                MessageBoxResult result;
+                result = MessageBox.Show("Konto utworzone pomyślnie", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+            }
         }
+    }
 }
-}
+

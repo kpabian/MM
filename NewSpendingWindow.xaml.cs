@@ -31,7 +31,7 @@ namespace MM
         private void InitializeComboBoxes()
         {
             var context = new MMContext();
-            var categoryList = context.Categories.ToList();
+            var categoryList = context.Categories.Where(s => s.User.ID == true).ToList();
             foreach (var c in categoryList)
             {
                 category.Items.Add(c.Name);
@@ -45,13 +45,15 @@ namespace MM
             {
                 using (var context = new MMContext())
                 {
+                    
                     var spd = new Spendings()
                     {
                         Amount = decimal.Parse(sum.Text),
                         Category = context.Categories.Where(s => s.Name == category.Text).FirstOrDefault(),
                         Importance = context.Importances.Where(s => s.Name == importance.Text).FirstOrDefault(),
                         Month = context.Months.Where(s => s.NameOfMonth == month.Text).FirstOrDefault(),
-                    };
+                        User = context.Users.Where(s => s.ID == true).First()
+                };
                     context.Spendings.Add(spd);
 
 
@@ -73,12 +75,6 @@ namespace MM
             ProfileWindow profileWindow = new ProfileWindow();
             profileWindow.Show();
             this.Close();
-        }
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            //coś tu jest nie tak, działa na odwrót 
-            //Regex regex = new Regex("^[0-9]{1,5},?[0-9]{0,2}$");
-            //e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

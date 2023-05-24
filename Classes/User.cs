@@ -14,6 +14,7 @@ namespace MM.Classes
         [Key]
         public string Name { get; set; }
         public string Password { get; set; }
-        
+        public bool ID { get; set; } = false;
+
     }
 }

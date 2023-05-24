@@ -20,13 +20,27 @@ namespace MM
             DatabaseFacade databaseFacade = new DatabaseFacade(new Classes.MMContext());
             databaseFacade.EnsureCreated();
             //NewDatabase();
-
-            
         }
         public void NewDatabase()
         {
             using (var context = new MMContext())
             {
+                //user
+
+                var user = new User()
+                {
+                    Name = "admin",
+                    Password = "admin"
+                };
+                context.Users.Add(user);
+
+                var user2 = new User()
+                {
+                    Name = "1",
+                    Password = "1"
+                };
+                context.Users.Add(user2);
+
                 //importance 
 
                 var std = new Importance()
@@ -50,7 +64,8 @@ namespace MM
 
                 var std3 = new Category()
                 {
-                    Name = "inwestycje/oszczędności"
+                    Name = "inwestycje/oszczędności",
+                    UserName = "admin"
                 };
                 context.Categories.Add(std3);
 

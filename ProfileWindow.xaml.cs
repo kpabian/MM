@@ -48,6 +48,12 @@ namespace MM
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
+            using (MMContext context = new MMContext())
+            {
+                var std = context.Users.Where(s => s.ID == true).First();
+                std.ID = false;
+                context.SaveChanges();
+            }
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
