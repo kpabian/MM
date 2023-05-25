@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MM"
         mc:Ignorable="d" FontSize="27"
-        Title="NewRaportDateWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="Generuj raport" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background= "#457b9d">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*"/>
@@ -35,8 +35,8 @@
             <ComboBoxItem>Listopad</ComboBoxItem>
             <ComboBoxItem>Grudzień</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="NewReportButton" Grid.Column="1" Grid.Row="2" Height="60" Width="250" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
-        <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="3" Height="60" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
+        <Button x:Name="NewReportButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="2" Height="60" Width="250" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
+        <Button x:Name="ExitButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="3" Height="60" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
 
 
     </Grid>

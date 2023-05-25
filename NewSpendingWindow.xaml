@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MM"
-        mc:Ignorable="d" FontSize="27"
-        Title="NewSpendingWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        mc:Ignorable="d" FontSize="27" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Title="Nowy wydatek">
+    <Grid Background= "#457b9d">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="95*"/>
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
@@ -25,12 +25,12 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="miesiąc" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="kategoria" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="ważność" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="kwota" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="2" Grid.Row="1" Text="miesiąc" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="54,0,0,0" Foreground="#FFF1FAEE"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" Text="kategoria" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="42,0,0,0" Foreground="#FFF1FAEE"/>
+        <TextBlock Grid.Column="2" Grid.Row="3" Text="ważność" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="48,0,0,0" Foreground="#FFF1FAEE"/>
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="kwota" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="62,0,0,0" Foreground="#FFF1FAEE"/>
 
-        <ComboBox x:Name="month" Grid.Column="2" Grid.Row="1" Width="200" Height="40" IsEditable="false" FontSize="20">
+        <ComboBox x:Name="month" Grid.Column="3" Grid.Row="1" Width="200" Height="40" IsEditable="false" FontSize="20" Margin="90,13,90,13" SelectedValue="Styczeń">
             <ComboBoxItem>Styczeń</ComboBoxItem>
             <ComboBoxItem>Luty</ComboBoxItem>
             <ComboBoxItem>Marzec</ComboBoxItem>
@@ -44,24 +44,16 @@
             <ComboBoxItem>Listopad</ComboBoxItem>
             <ComboBoxItem>Grudzień</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="category" Grid.Column="2" Grid.Row="2" Width="200" Height="40" IsEditable="false" FontSize="20" >
+        <ComboBox x:Name="category" Grid.Column="3" Grid.Row="2" Width="200" Height="40" IsEditable="false" FontSize="20" Margin="90,13,90,12" />
+        <ComboBox x:Name="importance" Grid.Column="3" Grid.Row="3" Width="200" Height="40" IsEditable="false" FontSize="20" Margin="90,13,90,13">
             
-                
-            <!--<ComboBoxItem>mieszkanie</ComboBoxItem>
-            <ComboBoxItem>jedzenie</ComboBoxItem>
-            <ComboBoxItem>transport</ComboBoxItem>
-            <ComboBoxItem>rozrywka</ComboBoxItem>
-            <ComboBoxItem>edukacja</ComboBoxItem>
-            <ComboBoxItem>inwestycje/oszczędności</ComboBoxItem>-->
+            <ComboBoxItem>potrzeby</ComboBoxItem>
+            <ComboBoxItem>zachcianki</ComboBoxItem>
+            <ComboBoxItem>inwestycje/oszczędności</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="importance" Grid.Column="2" Grid.Row="3" Width="200" Height="40" IsEditable="false" FontSize="20">
-        <ComboBoxItem>potrzeby</ComboBoxItem>
-        <ComboBoxItem>zachcianki</ComboBoxItem>
-        <ComboBoxItem>inwestycje/oszczędności</ComboBoxItem>
-        </ComboBox>
-        <TextBox x:Name="sum" Grid.Column="2" Grid.Row="4" Width="200" Height="40" FontSize="20"/>
-        <Button x:Name="NewSpendingsButton" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Dodaj" Click="NewSpendingsButton_Click"/>
-        <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click"/>
+        <TextBox x:Name="sum" Grid.Column="3" Grid.Row="4" Width="200" Height="40" FontSize="20" Margin="90,13,90,13"/>
+        <Button x:Name="NewSpendingsButton" Background="#a8dadc" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Dodaj" Click="NewSpendingsButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
+        <Button x:Name="ExitButton" Background="#a8dadc" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
 
 
 
