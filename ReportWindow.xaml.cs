@@ -21,6 +21,9 @@ namespace MM
     /// </summary>
     public partial class ReportWindow : Window
     {
+        /// <summary>
+        /// Initializes new ReportWindow, whitch enables creating new reports of spendings.
+        /// </summary>
         public ReportWindow()
         {
             InitializeComponent();
@@ -32,12 +35,18 @@ namespace MM
         {
             ProfileWindow profileWindow = new ProfileWindow();
             profileWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void ReportButton_Click(object sender, RoutedEventArgs e)
         {
-            MakeReport();
+            MMContext context = new MMContext();
+            bool selectedUser = context.Users.Any(c => c.Name == userCB.Text);
+            bool selectedMonth = context.Months.Any(c => c.NameOfMonth == monthCB.Text);
+            if(selectedUser && selectedMonth)
+                MakeReport();
+            
+            
         }
 
         private void InitializeLists()
@@ -47,11 +56,6 @@ namespace MM
             foreach (var c in usersList)
             {
                 userCB.Items.Add(c.Name);
-            }
-            var monthList = context.Months.ToList();
-            foreach (var c in monthList)
-            {
-                monthCB.Items.Add(c.NameOfMonth);
             }
         }
 
@@ -64,6 +68,59 @@ namespace MM
             foreach (var i in x)
             {
                 var y = context.Spendings.Where(s => s.Category == i && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
+                decimal sum = 0;
+                foreach (var s in y)
+                {
+                    sum += s.Amount;
+                    fullAmount += s.Amount;
+                }
+                sb.Append(sum.ToString());
+                sb.Append("\t\t");
+                sb.Append(i.Name.ToString());
+                sb.Append("\n");
+            }
+            sb.Append(fullAmount.ToString());
+            sb.Append("\t\t");
+            sb.Append("SUMA");
+            DataTextBox.Text = sb.ToString();
+        }
+
+        private void AnnualButton_Click(object sender, RoutedEventArgs e)
+        {
+            MMContext context = new MMContext();
+            var x = context.Months.ToArray();
+            StringBuilder sb = new StringBuilder();
+            decimal fullAmount = 0;
+            foreach (var i in x)
+            {
+                var y = context.Spendings.Where(s => s.Month.NameOfMonth == i.NameOfMonth && s.User.Name == userCB.Text).ToArray();
+                decimal sum = 0;
+                foreach (var s in y)
+                {
+
+                    sum += s.Amount;
+                    fullAmount += s.Amount;
+                }
+                sb.Append(sum.ToString());
+                sb.Append("\t\t");
+                sb.Append(i.NameOfMonth.ToString());
+                sb.Append("\n");
+            }
+            sb.Append(fullAmount.ToString());
+            sb.Append("\t\t");
+            sb.Append("SUMA");
+            DataTextBox.Text = sb.ToString();
+        }
+
+        private void ImportanceReportButton_Click(object sender, RoutedEventArgs e)
+        {
+            MMContext context = new MMContext();
+            var x = context.Importances.ToArray();
+            StringBuilder sb = new StringBuilder();
+            decimal fullAmount = 0;
+            foreach (var i in x)
+            {
+                var y = context.Spendings.Where(s => s.Importance.Name == i.Name && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
                 decimal sum = 0;
                 foreach (var s in y)
                 {

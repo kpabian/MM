@@ -15,26 +15,31 @@ namespace MM
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        ///  Initializes new DatabaseFacade and creates initial database.
+        /// </summary>
         protected override void OnStartup(StartupEventArgs e)
         {
             DatabaseFacade databaseFacade = new DatabaseFacade(new Classes.MMContext());
             databaseFacade.EnsureCreated();
-            //NewDatabase();
+            MMContext context = new MMContext();
+            if (!context.Users.Any(c => c.Name == "admin"))
+                NewDatabase();
         }
-        public void NewDatabase()
+        private void NewDatabase()
         {
-            using (var context = new MMContext())
+            using (MMContext context = new MMContext())
             {
                 //user
 
-                var user = new User()
+                User user = new User()
                 {
                     Name = "admin",
                     
                 };
                 context.Users.Add(user);
 
-                var user2 = new User()
+                User user2 = new User()
                 {
                     Name = "1",
                     
@@ -43,101 +48,109 @@ namespace MM
 
                 //importance 
 
-                var std = new Importance()
+                Importance std = new Importance()
                 {
                     Name = "potrzeby"
                 };
                 context.Importances.Add(std);
 
-                var std1 = new Importance()
+                Importance std1 = new Importance()
                 {
                     Name = "zachcianki"
                 };
                 context.Importances.Add(std1);
-                var std2 = new Importance()
+                Importance std2 = new Importance()
                 {
-                    Name = "inwestycje/oszczędności"
+                    Name = "oszczędności"
                 };
                 context.Importances.Add(std2);
 
                 // categories
 
-                var std3 = new Category()
+                Category std3 = new Category()
                 {
-                    Name = "inwestycje/oszczędności",
+                    Name = "mieszkanie",
                    
                 };
                 context.Categories.Add(std3);
+                Category std4 = new Category()
+                {
+                    Name = "żywność",
+
+                };
+                context.Categories.Add(std4);
+                Category std5 = new Category()
+                {
+                    Name = "transport",
+
+                };
+                context.Categories.Add(std5);
 
                 //months
-                var jan = new Month()
+
+                Month jan = new Month()
                 {
                     NameOfMonth = "Styczeń"
                 };
                 context.Months.Add(jan);
-                var feb = new Month()
+                Month feb = new Month()
                 {
                     NameOfMonth = "Luty"
                 };
                 context.Months.Add(feb);
-                var mar = new Month()
+                Month mar = new Month()
                 {
                     NameOfMonth = "Marzec"
                 };
                 context.Months.Add(mar);
-                var apr = new Month()
+                Month apr = new Month()
                 {
                     NameOfMonth = "Kwiecień"
                 };
                 context.Months.Add(apr);
-                var may = new Month()
+                Month may = new Month()
                 {
                     NameOfMonth = "Maj"
                 };
                 context.Months.Add(may);
-                var jun = new Month()
+                Month jun = new Month()
                 {
                     NameOfMonth = "Czerwiec"
                 };
                 context.Months.Add(jun);
-                var jul = new Month()
+                Month jul = new Month()
                 {
                     NameOfMonth = "Lipiec"
                 };
                 context.Months.Add(jul);
-                var aug = new Month()
+                Month aug = new Month()
                 {
                     NameOfMonth = "Sierpień"
                 };
                 context.Months.Add(aug);
-                var sep = new Month()
+                Month sep = new Month()
                 {
                     NameOfMonth = "Wrzesień"
                 };
                 context.Months.Add(sep);
-                var oct = new Month()
+                Month oct = new Month()
                 {
                     NameOfMonth = "Październik"
                 };
                 context.Months.Add(oct);
-                var nov = new Month()
+                Month nov = new Month()
                 {
                     NameOfMonth = "Listopad"
                 };
                 context.Months.Add(nov);
-                var dec = new Month()
+                Month dec = new Month()
                 {
                     NameOfMonth = "Grudzień"
                 };
                 context.Months.Add(dec);
 
-
                 context.SaveChanges();
             }
-
-
         }
     }
-
-    
 }

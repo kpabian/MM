@@ -20,6 +20,9 @@ namespace MM
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        /// <summary>
+        /// Creates new ProfileWindow
+        /// </summary>
         public ProfileWindow()
         {
             InitializeComponent();
@@ -48,7 +51,9 @@ namespace MM
 
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            NewUserWindow newUserWindow = new NewUserWindow();
+            newUserWindow.Show();
+            Close();
         }
     }
 }

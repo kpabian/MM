@@ -21,6 +21,9 @@ namespace MM
     /// </summary>
     public partial class NewSpendingWindow : Window
     {
+        /// <summary>
+        /// Initializes NewSpendingWindow, whitch enables creating new Spendings instances
+        /// </summary>
         public NewSpendingWindow()
         {
             InitializeComponent(); 

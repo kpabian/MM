@@ -20,6 +20,9 @@ namespace MM
     /// </summary>
     public partial class NewCategoryWindow : Window
     {
+        /// <summary>
+        /// Initializes NewCategoryWindow, whitch enables creating new Category instances
+        /// </summary>
         public NewCategoryWindow()
         {
             InitializeComponent();
@@ -27,26 +30,34 @@ namespace MM
 
         private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new MMContext())
+            if (categoryName.Text.Length > 1)
             {
-                try
+                using (var context = new MMContext())
                 {
-                    var std = new Category()
+                    try
                     {
-                        Name = categoryName.Text,
+                        var std = new Category()
+                        {
+                            Name = categoryName.Text,
 
-                    };
-                    context.Categories.Add(std);
-                    context.SaveChanges();
+                        };
+                        context.Categories.Add(std);
+                        context.SaveChanges();
 
-                    MessageBoxResult result;
-                    result = MessageBox.Show("Kategoria stworzona", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Kategoria stworzona", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBoxResult mess;
+                        mess = MessageBox.Show("Nie można utworzyć kategorii", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBoxResult mess;
-                    mess = MessageBox.Show("Nie można utworzyć kategorii", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
-                }
+            }
+            else
+            {
+                MessageBoxResult mess;
+                mess = MessageBox.Show("Nie można utworzyć kategorii. Za krótka nazwa", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
             }
         }
 
