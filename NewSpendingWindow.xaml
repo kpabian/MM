@@ -22,13 +22,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="2" Grid.Row="1" Text="miesiąc" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="54,0,0,0" Foreground="#FFF1FAEE"/>
         <TextBlock Grid.Column="2" Grid.Row="2" Text="kategoria" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="42,0,0,0" Foreground="#FFF1FAEE"/>
         <TextBlock Grid.Column="2" Grid.Row="3" Text="ważność" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="48,0,0,0" Foreground="#FFF1FAEE"/>
-        <TextBlock Grid.Column="2" Grid.Row="4" Text="kwota" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="62,0,0,0" Foreground="#FFF1FAEE"/>
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="użytkownik" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="48,0,0,0" Foreground="#FFF1FAEE"/>
+        <TextBlock Grid.Column="2" Grid.Row="5" Text="kwota" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="62,0,0,0" Foreground="#FFF1FAEE"/>
 
         <ComboBox x:Name="month" Grid.Column="3" Grid.Row="1" Width="200" Height="40" IsEditable="false" FontSize="20" Margin="90,13,90,13" SelectedValue="Styczeń">
             <ComboBoxItem>Styczeń</ComboBoxItem>
@@ -49,11 +51,13 @@
             
             <ComboBoxItem>potrzeby</ComboBoxItem>
             <ComboBoxItem>zachcianki</ComboBoxItem>
-            <ComboBoxItem>inwestycje/oszczędności</ComboBoxItem>
+            <ComboBoxItem>oszczędności</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="sum" Grid.Column="3" Grid.Row="4" Width="200" Height="40" FontSize="20" Margin="90,13,90,13"/>
-        <Button x:Name="NewSpendingsButton" Background="#a8dadc" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Dodaj" Click="NewSpendingsButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
-        <Button x:Name="ExitButton" Background="#a8dadc" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
+        <ComboBox x:Name="userCB" Grid.Column="3" Grid.Row="4" Width="200" Height="40" IsEditable="false" FontSize="20" Margin="90,13,90,12" />
+
+        <TextBox x:Name="sum" Grid.Column="3" Grid.Row="5" Width="200" Height="40" FontSize="20" Margin="90,13,90,13"/>
+        <Button x:Name="NewSpendingsButton" Background="#a8dadc" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Dodaj" Click="NewSpendingsButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
+        <Button x:Name="ExitButton" Background="#a8dadc" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Height="50" Width="250" VerticalAlignment="Center" Content="Wróć do profilu" Click="ExitButton_Click" Margin="163,0,255,0" Foreground="#FF1D3557"/>
 
 
 

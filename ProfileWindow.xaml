@@ -24,8 +24,8 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="NewSpendingsButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="1" Height="60" Width="300" VerticalAlignment="Center" Content="Dodaj wydatki" Click="NewSpendingsButton_Click"/>
+        <Button x:Name="NewUserButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="4" Height="60" Width="300" VerticalAlignment="Center" Content="Dodaj użytkownika" Click="NewUserButton_Click"/>
         <Button x:Name="NewCategoryButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="2" Height="60" Width="300" VerticalAlignment="Center" Content="Dodaj kategorię" Click="NewCategoryButton_Click"/>
         <Button x:Name="NewReportButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="3" Height="60" Width="300" VerticalAlignment="Center" Content="Generuj raport" Click="NewReportButton_Click"/>
-        <Button x:Name="LogOutButton" Background="#a8dadc" Foreground="#FF1D3557" Grid.Column="1" Grid.Row="4" Height="60" Width="300" VerticalAlignment="Center" Content="Wyloguj" Click="LogOutButton_Click"/>
     </Grid>
 </Window>

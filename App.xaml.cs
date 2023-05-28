@@ -30,14 +30,14 @@ namespace MM
                 var user = new User()
                 {
                     Name = "admin",
-                    Password = "admin"
+                    
                 };
                 context.Users.Add(user);
 
                 var user2 = new User()
                 {
                     Name = "1",
-                    Password = "1"
+                    
                 };
                 context.Users.Add(user2);
 
@@ -65,7 +65,7 @@ namespace MM
                 var std3 = new Category()
                 {
                     Name = "inwestycje/oszczędności",
-                    UserName = "admin"
+                   
                 };
                 context.Categories.Add(std3);
 

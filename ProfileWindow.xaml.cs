@@ -29,34 +29,26 @@ namespace MM
         {
             NewSpendingWindow newSpendingsWindow = new NewSpendingWindow();
             newSpendingsWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
             NewCategoryWindow newCategoryWindow = new NewCategoryWindow();
             newCategoryWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void NewReportButton_Click(object sender, RoutedEventArgs e)
         {
-            NewRaportDateWindow newRaportDateWindow = new NewRaportDateWindow();
+            ReportWindow newRaportDateWindow = new ReportWindow();
             newRaportDateWindow.Show();
-            this.Close();
+            Close();
         }
 
-        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        private void NewUserButton_Click(object sender, RoutedEventArgs e)
         {
-            using (MMContext context = new MMContext())
-            {
-                var std = context.Users.Where(s => s.ID == true).First();
-                std.ID = false;
-                context.SaveChanges();
-            }
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            throw new NotImplementedException();
         }
     }
 }

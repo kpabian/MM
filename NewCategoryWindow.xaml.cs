@@ -29,20 +29,25 @@ namespace MM
         {
             using (var context = new MMContext())
             {
-                var std = new Category()
+                try
                 {
-                    Name = categoryName.Text,
-                    User = context.Users.Where(s => s.ID == true).First()
+                    var std = new Category()
+                    {
+                        Name = categoryName.Text,
 
-                };
-                context.Categories.Add(std);
+                    };
+                    context.Categories.Add(std);
+                    context.SaveChanges();
 
-
-                context.SaveChanges();
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Kategoria stworzona", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxResult mess;
+                    mess = MessageBox.Show("Nie można utworzyć kategorii", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                }
             }
-
-            MessageBoxResult result;
-            result = MessageBox.Show("Kategoria stworzona", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
