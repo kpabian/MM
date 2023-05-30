@@ -30,26 +30,34 @@ namespace MM
 
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new MMContext())
+            if (userName.Text.Length > 1)
             {
-                try
+                using (var context = new MMContext())
                 {
-                    var std = new User()
+                    try
                     {
-                        Name = userName.Text,
+                        var std = new User()
+                        {
+                            Name = userName.Text,
 
-                    };
-                    context.Users.Add(std);
-                    context.SaveChanges();
+                        };
+                        context.Users.Add(std);
+                        context.SaveChanges();
 
-                    MessageBoxResult result;
-                    result = MessageBox.Show("Użytkownik utworzony", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Użytkownik utworzony", "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.Yes);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBoxResult mess;
+                        mess = MessageBox.Show("Nie można utworzyć użytkownika", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBoxResult mess;
-                    mess = MessageBox.Show("Nie można utworzyć kategorii", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
-                }
+            }
+            else
+            {
+                MessageBoxResult mess;
+                mess = MessageBox.Show("Za krótka nazwa użytkownika", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
             }
         }
 
