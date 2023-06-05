@@ -9,8 +9,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MM.Classes
 {
+    /// <summary>
+    /// This class defines users' data
+    /// </summary>
     public class User
     {
+        /// <summary>
+        /// Name of the user
+        /// </summary>
         [Key]
         public string Name { get; set; }
 

@@ -8,8 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MM.Classes
 {
+    /// <summary>
+    /// This class defines spendings' category data 
+    /// </summary>
     public class Category
     {
+        /// <summary>
+        /// Name of category
+        /// </summary>
         [Key]
         public string Name { get; set; }
         

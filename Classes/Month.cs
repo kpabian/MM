@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace MM.Classes
 {
+    /// <summary>
+    /// This class defines names of months
+    /// </summary>
     public class Month
     {
+        /// <summary>
+        /// Name of month
+        /// </summary>
         [Key]
         public string NameOfMonth { get; set; }
     }

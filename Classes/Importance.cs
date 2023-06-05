@@ -8,8 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MM.Classes
 {
+    /// <summary>
+    /// This class defines spendings' importance data
+    /// </summary>
     public class Importance
     {
+        /// <summary>
+        /// Name of the importance
+        /// </summary>
         [Key] 
         public string Name { get; set; }
 

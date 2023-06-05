@@ -45,8 +45,13 @@ namespace MM
             bool selectedMonth = context.Months.Any(c => c.NameOfMonth == monthCB.Text);
             if(selectedUser && selectedMonth)
                 MakeReport();
-            
-            
+            else
+            {
+                MessageBoxResult mess;
+                mess = MessageBox.Show("Nie wybrano użytkownika lub miesiąca", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
+            }
+
+
         }
 
         private void InitializeLists()
@@ -87,56 +92,77 @@ namespace MM
 
         private void AnnualButton_Click(object sender, RoutedEventArgs e)
         {
-            MMContext context = new MMContext();
-            var x = context.Months.ToArray();
-            StringBuilder sb = new StringBuilder();
-            decimal fullAmount = 0;
-            foreach (var i in x)
-            {
-                var y = context.Spendings.Where(s => s.Month.NameOfMonth == i.NameOfMonth && s.User.Name == userCB.Text).ToArray();
-                decimal sum = 0;
-                foreach (var s in y)
-                {
 
-                    sum += s.Amount;
-                    fullAmount += s.Amount;
+            MMContext context = new MMContext();
+            bool selectedUser = context.Users.Any(c => c.Name == userCB.Text);
+
+            if (selectedUser)
+            {
+                var x = context.Months.ToArray();
+                StringBuilder sb = new StringBuilder();
+                decimal fullAmount = 0;
+                foreach (var i in x)
+                {
+                    var y = context.Spendings.Where(s => s.Month.NameOfMonth == i.NameOfMonth && s.User.Name == userCB.Text).ToArray();
+                    decimal sum = 0;
+                    foreach (var s in y)
+                    {
+
+                        sum += s.Amount;
+                        fullAmount += s.Amount;
+                    }
+                    sb.Append(sum.ToString());
+                    sb.Append("\t\t");
+                    sb.Append(i.NameOfMonth.ToString());
+                    sb.Append("\n");
                 }
-                sb.Append(sum.ToString());
+                sb.Append(fullAmount.ToString());
                 sb.Append("\t\t");
-                sb.Append(i.NameOfMonth.ToString());
-                sb.Append("\n");
+                sb.Append("SUMA");
+                DataTextBox.Text = sb.ToString();
             }
-            sb.Append(fullAmount.ToString());
-            sb.Append("\t\t");
-            sb.Append("SUMA");
-            DataTextBox.Text = sb.ToString();
+            else
+            {
+                MessageBoxResult mess;
+                mess = MessageBox.Show("Nie wybrano użytkownika", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
+            }
         }
 
         private void ImportanceReportButton_Click(object sender, RoutedEventArgs e)
         {
             MMContext context = new MMContext();
-            var x = context.Importances.ToArray();
-            StringBuilder sb = new StringBuilder();
-            decimal fullAmount = 0;
-            foreach (var i in x)
+            bool selectedUser = context.Users.Any(c => c.Name == userCB.Text);
+            bool selectedMonth = context.Months.Any(c => c.NameOfMonth == monthCB.Text);
+            if (selectedUser && selectedMonth)
             {
-                var y = context.Spendings.Where(s => s.Importance.Name == i.Name && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
-                decimal sum = 0;
-                foreach (var s in y)
+                var x = context.Importances.ToArray();
+                StringBuilder sb = new StringBuilder();
+                decimal fullAmount = 0;
+                foreach (var i in x)
                 {
+                    var y = context.Spendings.Where(s => s.Importance.Name == i.Name && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
+                    decimal sum = 0;
+                    foreach (var s in y)
+                    {
 
-                    sum += s.Amount;
-                    fullAmount += s.Amount;
+                        sum += s.Amount;
+                        fullAmount += s.Amount;
+                    }
+                    sb.Append(sum.ToString());
+                    sb.Append("\t\t");
+                    sb.Append(i.Name.ToString());
+                    sb.Append("\n");
                 }
-                sb.Append(sum.ToString());
+                sb.Append(fullAmount.ToString());
                 sb.Append("\t\t");
-                sb.Append(i.Name.ToString());
-                sb.Append("\n");
+                sb.Append("SUMA");
+                DataTextBox.Text = sb.ToString();
             }
-            sb.Append(fullAmount.ToString());
-            sb.Append("\t\t");
-            sb.Append("SUMA");
-            DataTextBox.Text = sb.ToString();
+            else
+            {
+                MessageBoxResult mess;
+                mess = MessageBox.Show("Nie wybrano użytkownika lub miesiąca", "", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.Yes);
+            }
         }
     }
 }
