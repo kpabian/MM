@@ -56,9 +56,9 @@ namespace MM
 
         private void InitializeLists()
         {
-            var context = new MMContext();
-            var usersList = context.Users.ToList();
-            foreach (var c in usersList)
+            MMContext context = new MMContext();
+            List<User> usersList = context.Users.ToList();
+            foreach (User c in usersList)
             {
                 userCB.Items.Add(c.Name);
             }
@@ -67,14 +67,14 @@ namespace MM
         private void MakeReport()
         {
             MMContext context = new MMContext();
-            var x = context.Categories.ToArray();
+            Category[] x = context.Categories.ToArray();
             StringBuilder sb = new StringBuilder();
             decimal fullAmount = 0;
-            foreach (var i in x)
+            foreach (Category i in x)
             {
-                var y = context.Spendings.Where(s => s.Category == i && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
+                Spendings[] y = context.Spendings.Where(s => s.Category == i && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
                 decimal sum = 0;
-                foreach (var s in y)
+                foreach (Spendings s in y)
                 {
                     sum += s.Amount;
                     fullAmount += s.Amount;
@@ -98,14 +98,14 @@ namespace MM
 
             if (selectedUser)
             {
-                var x = context.Months.ToArray();
+                Month[] x = context.Months.ToArray();
                 StringBuilder sb = new StringBuilder();
                 decimal fullAmount = 0;
-                foreach (var i in x)
+                foreach (Month i in x)
                 {
-                    var y = context.Spendings.Where(s => s.Month.NameOfMonth == i.NameOfMonth && s.User.Name == userCB.Text).ToArray();
+                    Spendings[] y = context.Spendings.Where(s => s.Month.NameOfMonth == i.NameOfMonth && s.User.Name == userCB.Text).ToArray();
                     decimal sum = 0;
-                    foreach (var s in y)
+                    foreach (Spendings s in y)
                     {
 
                         sum += s.Amount;
@@ -135,14 +135,14 @@ namespace MM
             bool selectedMonth = context.Months.Any(c => c.NameOfMonth == monthCB.Text);
             if (selectedUser && selectedMonth)
             {
-                var x = context.Importances.ToArray();
+                Importance[] x = context.Importances.ToArray();
                 StringBuilder sb = new StringBuilder();
                 decimal fullAmount = 0;
-                foreach (var i in x)
+                foreach (Importance i in x)
                 {
-                    var y = context.Spendings.Where(s => s.Importance.Name == i.Name && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
+                    Spendings[] y = context.Spendings.Where(s => s.Importance.Name == i.Name && s.User.Name == userCB.Text && s.Month.NameOfMonth == monthCB.Text).ToArray();
                     decimal sum = 0;
-                    foreach (var s in y)
+                    foreach (Spendings s in y)
                     {
 
                         sum += s.Amount;

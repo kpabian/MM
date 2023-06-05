@@ -33,14 +33,14 @@ namespace MM
 
         private void InitializeComboBoxes()
         {
-            var context = new MMContext();
-            var categoryList = context.Categories.ToList();
-            foreach (var c in categoryList)
+            MMContext context = new MMContext();
+            List<Category> categoryList = context.Categories.ToList();
+            foreach (Category c in categoryList)
             {
                 category.Items.Add(c.Name);
             }
-            var usersList = context.Users.ToList();
-            foreach (var user in usersList)
+            List<User> usersList = context.Users.ToList();
+            foreach (User user in usersList)
             {
                 userCB.Items.Add(user.Name);
             }
@@ -49,7 +49,7 @@ namespace MM
         private void NewSpendingsButton_Click(object sender, RoutedEventArgs e)
         {
             Regex regex = new Regex("^[1-9][0-9]{0,5},?[0-9]{0,2}$");
-            using (var context = new MMContext())
+            using (MMContext context = new MMContext())
             {
                 bool selectedcategory = context.Categories.Any(c => c.Name == category.Text);
                 bool selectedimportance = context.Importances.Any(c => c.Name == importance.Text);
@@ -59,7 +59,7 @@ namespace MM
                 if (regex.IsMatch(sum.Text) && selectedcategory && selectedimportance && selectedmonth)
                 {
                 
-                    var spd = new Spendings()
+                    Spendings spd = new Spendings()
                     {
                         Amount = decimal.Parse(sum.Text),
                         Category = context.Categories.Where(s => s.Name == category.Text).FirstOrDefault(),

@@ -32,11 +32,11 @@ namespace MM
         {
             if (categoryName.Text.Length > 1)
             {
-                using (var context = new MMContext())
+                using (MMContext context = new MMContext())
                 {
                     try
                     {
-                        var std = new Category()
+                        Category std = new Category()
                         {
                             Name = categoryName.Text,
 

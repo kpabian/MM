@@ -32,11 +32,11 @@ namespace MM
         {
             if (userName.Text.Length > 1)
             {
-                using (var context = new MMContext())
+                using (MMContext context = new MMContext())
                 {
                     try
                     {
-                        var std = new User()
+                        User std = new User()
                         {
                             Name = userName.Text,
 
